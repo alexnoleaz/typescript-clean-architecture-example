@@ -1,0 +1,45 @@
+{
+  "name": "typescript-clean-architecture-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "tsnd --respawn src/app.ts",
+    "start": "npm run build && node dist/app.js",
+    "build": "rimraf ./dist && tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "keywords": [],
+  "author": "Alexander Nole",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/config": "^3.3.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^20.10.3",
+    "@types/uuid": "^9.0.7",
+    "@types/uuid-validate": "^0.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "http-status": "^1.7.3",
+    "node-dependency-injection": "^3.1.2",
+    "uuid": "^9.0.1",
+    "uuid-validate": "^0.0.3"
+  }
+}
