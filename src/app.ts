@@ -1,10 +1,10 @@
 import 'dotenv/config';
-import { Configuration } from './infrastructure/shared/Configuration';
+import { Configuration } from './infrastructure/shared/config/Configuration';
 import { Routes, Server } from './web-api';
 
-(() => main())();
+((): Promise<void> => main())();
 
-async function main() {
+async function main(): Promise<void> {
   const port = new Configuration().get<number>('port');
   const server = new Server({ routes: new Routes().get(), port });
   await server.start();

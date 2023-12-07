@@ -3,14 +3,14 @@ import express, { Express } from 'express';
 import helmet from 'helmet';
 import { Server as HttpServer } from 'http';
 
-import { ServerOptions } from './rest/shared';
+import { IServerOptions } from './rest/shared';
 
 export class Server {
   private readonly port: number;
   private readonly express: Express;
   private http?: HttpServer;
 
-  constructor(options: ServerOptions) {
+  constructor(options: IServerOptions) {
     const { port = 3000, routes } = options;
 
     this.port = port;
@@ -27,7 +27,7 @@ export class Server {
   }
 
   async start(): Promise<void> {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       this.http = this.express.listen(this.port, () => {
         console.log(`\n\tServer is running at http://localhost:${this.port}`);
         console.log('\tPress Ctrl-C to stop');
@@ -37,13 +37,13 @@ export class Server {
   }
 
   async stop(): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       if (this.http) this.http.close((error) => (error ? reject(error) : resolve()));
       resolve();
     });
   }
 
-  get httpServer() {
+  get httpServer(): HttpServer | undefined {
     return this.http;
   }
 }

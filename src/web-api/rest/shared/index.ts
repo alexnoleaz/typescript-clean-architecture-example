@@ -1,1 +1,1 @@
-export * from './ServerOptions';
+export * from './IServerOptions';

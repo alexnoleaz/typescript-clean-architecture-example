@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 export class Routes {
-  get() {
+  get(): Router {
     const router = Router();
 
     return router;

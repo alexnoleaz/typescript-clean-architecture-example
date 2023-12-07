@@ -1,11 +1,11 @@
 import conf from 'config';
-import { Vars } from './ConfigurationTypes';
+import { Parameter } from './Parameter';
 
 export class Configuration {
-  get<T>(value: Vars) {
+  get<T>(value: Parameter): T {
     return conf.get<T>(value);
   }
-  has(value: string) {
+  has(value: string): boolean {
     return conf.has(value);
   }
 }

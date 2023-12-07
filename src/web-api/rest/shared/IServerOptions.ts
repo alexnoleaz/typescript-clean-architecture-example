@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-export interface ServerOptions {
+export interface IServerOptions {
   port?: number;
   routes: Router;
 }
