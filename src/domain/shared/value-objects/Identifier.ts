@@ -11,6 +11,6 @@ export abstract class Identifier extends ValueObject<string> {
 
   private validateUuid(value: string): void {
     if (!this.pattern.test(value))
-      throw new ArgumentError(`<${this.constructor.name}> does not allow the value <${value}> `);
+      throw new ArgumentError(`<${this.constructor.name}> does not allow the value <${value}>`);
   }
 }

@@ -11,7 +11,7 @@ export abstract class ValueObject<T extends ValueType> {
   }
 
   private validateValue(value: T): void {
-    if (value === null || value === undefined) throw new ArgumentError('Value must be defined');
+    if (value === null || value === undefined) throw new ArgumentError('Value must be defined.');
   }
 
   equals(obj: ValueObject<T>): boolean {
