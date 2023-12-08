@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors/ArgumentError';
+import { ArgumentError } from '../errors';
 import { Field } from './Field';
 import { Operator } from './Operator';
 import { Value } from './Value';

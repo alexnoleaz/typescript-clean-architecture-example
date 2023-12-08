@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors/ArgumentError';
+import { ArgumentError } from '../errors';
 
 type ValueType = string | number | boolean | Date | object;
 

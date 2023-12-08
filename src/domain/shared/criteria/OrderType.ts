@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors/ArgumentError';
+import { ArgumentError } from '../errors';
 
 export class OrderType {
   static readonly ASC = new OrderType('asc');

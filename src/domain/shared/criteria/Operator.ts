@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors/ArgumentError';
+import { ArgumentError } from '../errors';
 
 export class Operator {
   static readonly EQUAL = new Operator('=');

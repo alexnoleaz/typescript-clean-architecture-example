@@ -1,4 +1,4 @@
-import { ArgumentError } from '../errors/ArgumentError';
+import { ArgumentError } from '../errors';
 import { ValueObject } from './ValueObject';
 
 export abstract class Identifier extends ValueObject<string> {
