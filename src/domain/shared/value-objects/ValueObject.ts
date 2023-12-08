@@ -1,8 +1,8 @@
-import { InvalidArgumentError } from '../errors/InvalidArgumentError';
+import { ArgumentError } from '../errors/ArgumentError';
 
-type Primitives = string | number | boolean | Date;
+type ValueType = string | number | boolean | Date | object;
 
-export abstract class ValueObject<T extends Primitives> {
+export abstract class ValueObject<T extends ValueType> {
   readonly value: T;
 
   constructor(value: T) {
@@ -11,10 +11,14 @@ export abstract class ValueObject<T extends Primitives> {
   }
 
   private validateValue(value: T): void {
-    if (value === null || value === undefined) throw new InvalidArgumentError('Value must be defined');
+    if (value === null || value === undefined) throw new ArgumentError('Value must be defined');
   }
 
   equals(obj: ValueObject<T>): boolean {
     return obj.constructor.name === this.constructor.name && obj.value === this.value;
+  }
+
+  toString(): string {
+    return this.value.toString();
   }
 }

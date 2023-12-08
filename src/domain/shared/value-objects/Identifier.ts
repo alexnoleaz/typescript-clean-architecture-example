@@ -1,4 +1,4 @@
-import { InvalidArgumentError } from '../errors/InvalidArgumentError';
+import { ArgumentError } from '../errors/ArgumentError';
 import { ValueObject } from './ValueObject';
 
 export abstract class Identifier extends ValueObject<string> {
@@ -11,6 +11,6 @@ export abstract class Identifier extends ValueObject<string> {
 
   private validateUuid(value: string): void {
     if (!this.pattern.test(value))
-      throw new InvalidArgumentError(`<${this.constructor.name}> does not allow the value <${value}> `);
+      throw new ArgumentError(`<${this.constructor.name}> does not allow the value <${value}> `);
   }
 }
