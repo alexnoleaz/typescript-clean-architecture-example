@@ -1,19 +1,17 @@
 import cors from 'cors';
-import express, { Express } from 'express';
+import express, { Express, Router } from 'express';
 import helmet from 'helmet';
 import { Server as HttpServer } from 'http';
 
-import { IServerOptions } from './rest/shared';
+import { IConfiguration, IServiceCollection } from '../domain/shared';
 
 export class Server {
   private readonly port: number;
   private readonly express: Express;
   private http?: HttpServer;
 
-  constructor(options: IServerOptions) {
-    const { port = 3000, routes } = options;
-
-    this.port = port;
+  constructor(routes: Router, services: IServiceCollection, configuration: IConfiguration) {
+    this.port = configuration.get<number>('port');
     this.express = express();
 
     // Middlewares

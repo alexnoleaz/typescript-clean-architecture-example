@@ -1,11 +1,19 @@
 import 'dotenv/config';
-import { Configuration } from './infrastructure/shared/config/Configuration';
+import { Configuration, ServiceCollection } from './infrastructure/shared';
 import { Routes, Server } from './web-api';
 
 ((): Promise<void> => main())();
 
 async function main(): Promise<void> {
-  const port = new Configuration().get<number>('port');
-  const server = new Server({ routes: new Routes().get(), port });
+  const [services, configuration] = startup();
+  const server = new Server(new Routes().get(), services, configuration);
   await server.start();
+}
+
+function startup(): [ServiceCollection, Configuration] {
+  const serviceCollection = new ServiceCollection();
+  serviceCollection.addSingleton('IConfiguration', Configuration);
+
+  const configuration = serviceCollection.get<Configuration>('IConfiguration');
+  return [serviceCollection, configuration];
 }
